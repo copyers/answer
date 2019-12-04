@@ -1,21 +1,24 @@
 package com.answer.question.Controller;
 
 import com.answer.question.dto.AccessTokenDTO;
+import com.answer.question.dto.GithubUser;
 import com.answer.question.provider.GithubProvider;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
+@Controller
 public class AuthorizeController {
 
 
     @Autowired
     private GithubProvider githubProvider;
-    
+
     @Value("${github.client.id}")
     private String clientId;
 
@@ -30,11 +33,15 @@ public class AuthorizeController {
                            @RequestParam(name="state") String state,
                            HttpServletRequest request){
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
-        accessTokenDTO.setClient_id(clientId);
-        accessTokenDTO.setRedirect_url(clientSecret);
         accessTokenDTO.setCode(code);
         accessTokenDTO.setState(state);
+        accessTokenDTO.setRedirect_url(clientUrl);
+        accessTokenDTO.setClient_id(clientId);
+        accessTokenDTO.setClient_secret(clientSecret);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
+        GithubUser user = githubProvider.getUser(accessToken);
+        System.out.println(user.getName());
+//
 //        GithubUser user = githubProvider.getUser(accesToken);
 //        System.out.println(user.getName());
 //        if(user!=null){
@@ -44,7 +51,7 @@ public class AuthorizeController {
 //        }else{
 //            //登录失败，
 //        }
-        return "/";
+        return "index";
     }
 
 }
