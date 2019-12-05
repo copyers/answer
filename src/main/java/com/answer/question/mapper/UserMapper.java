@@ -1,5 +1,6 @@
 package com.answer.question.mapper;
 
+import com.answer.question.model.Question;
 import com.answer.question.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,4 +15,7 @@ public interface UserMapper {
 
     @Select("select * from user where token = #{token}")
     User findByToken(@Param("token") String token);
+
+    @Select("select * from user where id = #{id}")
+    User findById(@Param("id") Integer creator);
 }
