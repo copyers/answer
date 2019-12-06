@@ -19,13 +19,9 @@ public class PaginationDTO {
     private List<Integer> pages = new ArrayList<>();
     private Integer totalPage;
 
-    public void setPagination(Integer totalCount, Integer page, Integer size) {
+    public void setPagination(Integer totalPage, Integer page) {
 
-        if (totalCount%size==0){
-            totalPage = totalCount/size;
-        }else{
-            totalPage = totalCount/size + 1;
-        }
+        this.totalPage = totalPage;
 
         this.page = page;
 
@@ -65,4 +61,5 @@ public class PaginationDTO {
             showEndPage = true;
         }
     }
+
 }

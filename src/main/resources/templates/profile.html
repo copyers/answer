@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>问答社区</title>
+    <title th:text="${sectionName}"></title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/answer.css}"/>
     <script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
@@ -10,10 +10,10 @@
 </head>
 <body>
 <div th:insert="~{navigation :: nav}"></div>
-<div class="container-fluid main">
+<div class="container-fluid main profile">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>发 现</h2>
+            <h2><span th:text="${sectionName}"></span></h2>
             <hr>
             <div class="media" th:each="question:${pagination.questions}">
                 <div class="media-left">
@@ -54,12 +54,12 @@
             </nav>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>热门话题</h3>
-            · 问题标题：请用精简约语言描述您发布的问题，不超过25字 <br>
-            · 问题补充：详细补充您的问题内容，并确保问题描述直观清晰，并提供一些相关资料<br>
-            · 选择标签：选择一个或者多个合适的标签，用逗号隔开且不超过10个字<br>
-            · 关于积分：发起一个问题会消耗您20个积分，每多一个回复您将获得5个积分的奖励，为了您的利益，在发起问题的时候希望能够更好的描述您的问题以及多使用站内搜索功能。<br>
-
+            <div class="list-group section">
+                <a href="/profile/questions" th:class="${section == 'questions'}? 'active list-group-item' : 'list-group-item'">我的问题</a>
+                <a href="/profile/replies" th:class="${section == 'replies'}? 'active list-group-item' : 'list-group-item'">
+                    最新回复 <span class="badge">14</span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
