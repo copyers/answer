@@ -85,6 +85,9 @@ public class QuestionService {
         paginationDTO.setPagination(totalPage, page);
 
         Integer offset = size * (page - 1);
+        if (offset < 0){
+            offset = 0;
+        }
         List<Question> questions = questionMapper.listByuserId(userId, offset, size);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
