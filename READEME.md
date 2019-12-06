@@ -18,6 +18,7 @@ create table user
 );
 
 
+
 create table question
 (
     id            int auto_increment
@@ -33,10 +34,6 @@ create table question
     tag           varchar(256)  null
 );
 
-
-
-
-
-
 ```
 
+mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate

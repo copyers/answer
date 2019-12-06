@@ -39,15 +39,15 @@ public class QuestionService {
         if (page < 1) {
             page = 1;
         }
-        if (page > totalPage) {
+        if (page > totalPage && totalPage!=0) {
             page = totalPage;
         }
         paginationDTO.setPagination(totalPage, page);
 
         Integer offset = size * (page - 1);
-        if (offset < 0){
-            offset = 0;
-        }
+//        if (offset < 0){
+//            offset = 0;
+//        }
         List<Question> questions = questionMapper.list(offset, size);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
@@ -79,15 +79,15 @@ public class QuestionService {
         if (page < 1) {
             page = 1;
         }
-        if (page > totalPage) {
+        if (page > totalPage && totalPage!=0) {
             page = totalPage;
         }
         paginationDTO.setPagination(totalPage, page);
 
         Integer offset = size * (page - 1);
-        if (offset < 0){
-            offset = 0;
-        }
+//        if (offset < 0){
+//            offset = 0;
+//        }
         List<Question> questions = questionMapper.listByuserId(userId, offset, size);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
@@ -100,5 +100,25 @@ public class QuestionService {
         }
         paginationDTO.setQuestions(questionDTOList);
         return paginationDTO;
+    }
+
+    public QuestionDTO getById(Integer id) {
+
+        Question question = questionMapper.getById(id);
+        QuestionDTO questionDTO = new QuestionDTO();
+        BeanUtils.copyProperties(question,questionDTO);
+        User user = userMapper.findById(question.getCreator());
+        questionDTO.setUser(user);
+        return  questionDTO;
+    }
+
+    public void createOrUpdate(Question question) {
+
+        if (question.getId()==null){
+            questionMapper.create(question);
+        }else{
+            question.setGmtModified(System.currentTimeMillis());
+            questionMapper.update(question);
+        }
     }
 }
