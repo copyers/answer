@@ -4,12 +4,10 @@ import com.answer.question.dto.PaginationDTO;
 import com.answer.question.dto.QuestionDTO;
 import com.answer.question.mapper.QuestionMapper;
 import com.answer.question.mapper.UserMapper;
-import com.answer.question.model.Question;
 import com.answer.question.model.User;
 import com.answer.question.service.QuestionService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.naming.Name;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller

@@ -5,6 +5,7 @@
     <title>问答社区</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/answer.css}"/>
+    <script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 </head>
 <body>
@@ -32,7 +33,10 @@
                 </li>
 <!--                <li><a href="https://github.com/login/oauth/authorize?client_id=566bb278b22f071b15cf&redirect_url=http://localhost:8080/callback&scope=user&state=1">登录</a></li>-->
                 <li class="dropdown" th:if="${session.user!=null}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:text="${session.user.getName()}"> <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                        <span th:text="${session.user.getName()}"></span>
+                        <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">消息中心</a></li>
                         <li><a href="#">个人资料</a></li>
