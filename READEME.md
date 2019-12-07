@@ -37,3 +37,5 @@ create table question
 ```
 
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
+
+config --global core.autocrlf false

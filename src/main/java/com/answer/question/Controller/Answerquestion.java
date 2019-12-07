@@ -39,12 +39,12 @@ public class Answerquestion {
     }
 
 
-    @ResponseBody
-    @GetMapping("/test/{id}")
-    public List<QuestionDTO> test(@PathVariable("id") Integer pagenum) {
-        PageHelper.startPage(pagenum, 3);
-        return questionMapper.selectbypagehelper();
-    }
+//    @ResponseBody
+//    @GetMapping("/test/{id}")
+//    public List<QuestionDTO> test(@PathVariable("id") Integer pagenum) {
+//        PageHelper.startPage(pagenum, 3);
+//        return questionMapper.selectbypagehelper();
+//    }
 
 
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>问答社区</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/answer.css}"/>
+    <script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+<div class="jumbotron">
+    <h4>服务器出错了，请稍后再试!</h4>
+    <p th:text="${message}"></p>
+    <p><a class="btn btn-primary btn-lg" href="/" role="button">返回主页</a></p>
+</div>
+</body>
+</html>
