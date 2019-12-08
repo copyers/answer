@@ -2,7 +2,6 @@ package com.answer.question.Controller;
 
 import com.answer.question.dto.AccessTokenDTO;
 import com.answer.question.dto.GithubUser;
-import com.answer.question.mapper.UserMapper;
 import com.answer.question.model.User;
 import com.answer.question.provider.GithubProvider;
 import com.answer.question.service.UserService;
