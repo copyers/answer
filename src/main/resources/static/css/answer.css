@@ -57,6 +57,9 @@ body{
     font-size: 15px;
     cursor: pointer;
 }
+.menu .active{
+    color: #499ef3;
+}
 .menu .icon:hover{
     color: #499ef3;
 }
@@ -64,4 +67,16 @@ body{
     margin-bottom: 12px;
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
+}
+.sub-comments {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border:1px solid #eee;
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+.sub-comments .btn{
+    margin: 10px 0;
 }
