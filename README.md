@@ -37,18 +37,18 @@ create table question
 );
 create table comment
 (
-    id           bigint auto_increment
+    id            bigint auto_increment
         primary key,
-    parent_id    bigint           not null comment '父类id',
-    type         int              not null comment '父类类型
+    parent_id     bigint           not null comment '父类id',
+    type          int              not null comment '父类类型
 ',
-    commentator  bigint              not null comment '评论人id',
-    gmt_create   bigint           not null comment '创建时间',
-    gmt_modified bigint           not null comment '更新时间',
-    like_count   bigint default 0 null comment '点赞数',
-    content      varchar(1024)    null comment '评论内容'
+    commentator   bigint           not null comment '评论人id',
+    gmt_create    bigint           not null comment '创建时间',
+    gmt_modified  bigint           not null comment '更新时间',
+    like_count    bigint default 0 null comment '点赞数',
+    content       varchar(1024)    null comment '评论内容',
+    comment_count int    default 0 null
 );
-
 
 ```
 
