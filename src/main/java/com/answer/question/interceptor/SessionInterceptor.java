@@ -1,8 +1,10 @@
 package com.answer.question.interceptor;
 
 import com.answer.question.mapper.UserMapper;
+import com.answer.question.model.Notification;
 import com.answer.question.model.User;
 import com.answer.question.model.UserExample;
+import com.answer.question.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -19,18 +21,23 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private NotificationService notificationService;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Cookie[] cookies = request.getCookies();
         if (cookies != null && cookies.length != 0)
-            for (Cookie cookie:cookies){
-                if (cookie.getName().equals("token")){
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("token")) {
                     String token = cookie.getValue();
                     UserExample userExample = new UserExample();
                     userExample.createCriteria().andTokenEqualTo(token);
                     List<User> users = userMapper.selectByExample(userExample);
-                    if (users.size()!=0){
-                        request.getSession().setAttribute("user",users.get(0));
+                    if (users.size() != 0) {
+                        request.getSession().setAttribute("user", users.get(0));
+                        Integer unreadCount = notificationService.unreadCount(users.get(0).getId());
+                        request.getSession().setAttribute("unreadMessage", unreadCount);
                     }
                     break;
                 }

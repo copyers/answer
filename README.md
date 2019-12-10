@@ -49,6 +49,21 @@ create table comment
     content       varchar(1024)    null comment '评论内容',
     comment_count int    default 0 null
 );
+create table notification
+(
+    id            bigint auto_increment
+        primary key,
+    notifier      bigint        null,
+    receiver      bigint        null,
+    outerId       bigint        null,
+    type          int           null,
+    gmt_create    bigint        null,
+    status        int default 0 null,
+    NOTIFIER_NAME varchar(100)  null,
+    OUTER_TITLE   varchar(256)  null
+);
+
+
 
 ```
 
