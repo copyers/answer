@@ -37,16 +37,23 @@ body {
 .question-tag{
     margin-right: 5px;
 }
-.question-width{
-    width: 100%;
+.question-wechat{
+    width: 95%;
 }
-
+.publish-tag-tab {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.publish-tag-tab .label-info {
+    white-space: normal;
+    margin: 5px 5px;
+    display: inline-block;
+}
 .community-menu {
-    display: block;
     color: #999;
     font-size: 13px;
     margin-bottom: 15px;
-
 }
 
 .jumbotron {

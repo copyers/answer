@@ -31,7 +31,7 @@ public class QuestionController {
         QuestionDTO questionDTO = questionService.getById(id);
 
         List<QuestionDTO> relatedQuestions = questionService.selectRelated(questionDTO);
-        List<CommentDTO> comments =  commentService.listByQuestionId(id, CommentTypeEnum.QUESTION);
+        List<CommentDTO> comments =  commentService.listByTargetId(id, CommentTypeEnum.QUESTION);
         //累加阅读数
         questionService.inView(id);
         model.addAttribute("question",questionDTO);
