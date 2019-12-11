@@ -70,3 +70,22 @@ create table notification
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 
 config --global core.autocrlf false
+
+###项目部署
+- JDK
+- Maven 
+- Git 
+- MySQL
+##步骤
+- yum update
+- yum install git
+- mkdir App
+- cd App
+- git clone XXXXX.git
+- yum install maven
+- mvn -v
+- mvn clean compile package
+- cp src/main/resources/application.properties src/main/resources/application-production.properties
+- vim src/main/resources/application-production.properties
+- mvn package
+- profile 启动
