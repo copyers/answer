@@ -1,0 +1,12 @@
+2019-12-11 13:13:39  INFO 16268 --- [main] c.a.question.AnswerquestionApplication   : Starting AnswerquestionApplication on DESKTOP-J38KC6R with PID 16268 (D:\answerquestion\target\classes started by zhengquan in D:\answerquestion)
+2019-12-11 13:13:39  INFO 16268 --- [main] c.a.question.AnswerquestionApplication   : No active profile set, falling back to default profiles: default
+2019-12-11 13:13:39  WARN 16268 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2019-12-11 13:13:40  INFO 16268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-12-11 13:13:40  INFO 16268 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-11 13:13:40  INFO 16268 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-12-11 13:13:40  INFO 16268 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-12-11 13:13:40  INFO 16268 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1180 ms
+2019-12-11 13:13:41  INFO 16268 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-11 13:13:41  INFO 16268 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-12-11 13:13:41  INFO 16268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-11 13:13:41  INFO 16268 --- [main] c.a.question.AnswerquestionApplication   : Started AnswerquestionApplication in 2.617 seconds (JVM running for 3.338)

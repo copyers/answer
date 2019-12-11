@@ -12,7 +12,7 @@
     <script type="text/javascript" th:src="@{/js/moment.js}"></script>
     <script type="text/javascript" th:src="@{/js/editormd.js}"></script>
     <script type="text/javascript" th:src="@{/lib/marked.min.js}"></script>
-    <script type="text/javascript" th:src="@{/js/prettify.min.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/prettify.min.js}"></script>
 </head>
 <body>
 <div th:insert="~{navigation :: nav}"></div>
@@ -110,12 +110,12 @@
                     <div class="media">
                         <div class="media-left">
                             <a href="#">
-                                <img class="media-object img-rounded" th:src="${question.user.avatarUrl}">
+                                <img class="media-object img-rounded" th:src="${session.user != null ?session.user.avatarUrl:'/images/default.png'}">
                             </a>
                         </div>
                         <div class="media-body">
                             <h6 class="media-heading">
-                                <span th:text="${question.user.name}"></span>
+                                <span th:text="${session.user != null ?session.user.name:'匿名用户'}"></span>
                             </h6>
                         </div>
                     </div>
@@ -163,5 +163,6 @@
         </div>
     </div>
 </div>
+<div th:insert="~{footer :: foot}"></div>
 </body>
 </html>

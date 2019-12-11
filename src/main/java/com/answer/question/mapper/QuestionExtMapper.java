@@ -1,5 +1,6 @@
 package com.answer.question.mapper;
 
+import com.answer.question.dto.QuestionQueryDTO;
 import com.answer.question.model.Question;
 import com.answer.question.model.QuestionExample;
 import org.apache.ibatis.annotations.Param;
@@ -140,4 +141,7 @@ public interface QuestionExtMapper {
 
     List<Question> selectRelated(Question question);
 
+    Integer countBySearch(QuestionQueryDTO questionQueryDTO);
+
+    List<Question> selectBySearch(QuestionQueryDTO questionQueryDTO);
 }
